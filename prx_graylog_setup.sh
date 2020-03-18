@@ -2,6 +2,12 @@
 #
 #
 #
+echo Updating CentOS before installation...
+yum -y update
+yum -y upgrade
+#
+#
+#
 echo Installing OpenJDK Java 1.8.0
 yum install -y java-1.8.0-openjdk-headless.x86_64
 #
