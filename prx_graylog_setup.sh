@@ -67,7 +67,7 @@ read SECRETPASSWORD
 stty echo
 echo " "
 stty -echo
-printf "Specify Graylog Web Login: "
+printf "Specify Graylog Web Login Admin Password: "
 read WEBLOGIN
 stty echo
 echo " "
