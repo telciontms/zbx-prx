@@ -108,4 +108,5 @@ read -p "Once the above information has been added to the Zabbix Server, press [
 #
 # Configuring Zabbix Proxy Service
 echo Restarting Zabbix Proxy Service...
+systemctl enable zabbix-proxy
 systemctl restart zabbix-proxy
