@@ -16,12 +16,12 @@ echo "Updates have completed..."
 #
 #
 # Changing Hostname of Device
-echo Please specify a hostname for this device...
-read -p 'Server Hostname: ' HOSTNAME
-hostnamectl set-hostname $HOSTNAME
-echo Setting hostname...
-sed -i "s/centos7/$HOSTNAME/g" /etc/hosts
-echo "Hostname has been set to $HOSTNAME..."
+#echo Please specify a hostname for this device...
+#read -p 'Server Hostname: ' HOSTNAME
+#hostnamectl set-hostname $HOSTNAME
+#echo Setting hostname...
+#sed -i "s/centos7/$HOSTNAME/g" /etc/hosts
+#echo "Hostname has been set to $HOSTNAME..."
 #
 #
 #
