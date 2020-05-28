@@ -10,8 +10,7 @@
 #
 #Updating Operating System
 echo "Updating device..."
-apt-get update
-apt-get -y upgrade
+yum -y update
 echo "Updates have completed..."
 #
 #
