@@ -47,7 +47,7 @@ echo "Please specify the Zabbix Proxy Hostname."
 echo "Format of the Zabbix Proxy Hostname should be ###-ClientName"
 read -p 'Zabbix Proxy Hostame: ' HOSTNAMEVAR
 echo "Setting $HOSTNAMEVAR as the proxy name..."
-sed -i "s/Hostname=Zabbix proxy/Hostname=$HOSTNAMEVAR/g" /etc/zabbix/zabbix_proxy.conf
+sed -i "s/Hostname=changeme/Hostname=$HOSTNAMEVAR/g" /etc/zabbix/zabbix_proxy.conf
 #
 #
 #
@@ -55,18 +55,18 @@ sed -i "s/Hostname=Zabbix proxy/Hostname=$HOSTNAMEVAR/g" /etc/zabbix/zabbix_prox
 # echo Configuring Zabbix Proxy DB Connection Parameters...
 # sed -i 's/DBName=zabbix_proxy/DBName=zabbix/g' /etc/zabbix/zabbix_proxy.conf
 # sed -i "s/# DBPassword=/DBPassword=$MYSQLZABBIXPW/g" /etc/zabbix/zabbix_proxy.conf
-echo Configuring zabbix proxy configuration retrieval frequency
-sed -i 's/# ConfigFrequency=3600/ConfigFrequency=1200/g' /etc/zabbix/zabbix_proxy.conf
-echo Configuring other zabbix proxy parameters...
-sed -i 's/# StartPollers=5/StartPollers=10/g' /etc/zabbix/zabbix_proxy.conf
-sed -i 's/# StartPollersUnreachable=1/StartPollersUnreachable=5/g' /etc/zabbix/zabbix_proxy.conf
-sed -i 's/# StartPingers=1/StartPingers=10/g' /etc/zabbix/zabbix_proxy.conf
-sed -i 's/# StartDiscoverers=1/StartDiscoverers=5/g' /etc/zabbix/zabbix_proxy.conf
-sed -i 's/# StartVMwareCollectors=0/StartVMwareCollectors=5/g' /etc/zabbix/zabbix_proxy.conf
-sed -i 's/# VMwareCacheSize=8M/VMwareCacheSize=100M/g' /etc/zabbix/zabbix_proxy.conf
-sed -i 's/# CacheSize=8M/CacheSize=100M/g' /etc/zabbix/zabbix_proxy.conf
-sed -i 's/# AllowRoot=0/AllowRoot=1/g' /etc/zabbix/zabbix_proxy.conf
-echo Zabbix Proxy Parameters have been configured
+#echo Configuring zabbix proxy configuration retrieval frequency
+#sed -i 's/# ConfigFrequency=3600/ConfigFrequency=1200/g' /etc/zabbix/zabbix_proxy.conf
+#echo Configuring other zabbix proxy parameters...
+#sed -i 's/# StartPollers=5/StartPollers=10/g' /etc/zabbix/zabbix_proxy.conf
+#sed -i 's/# StartPollersUnreachable=1/StartPollersUnreachable=5/g' /etc/zabbix/zabbix_proxy.conf
+#sed -i 's/# StartPingers=1/StartPingers=10/g' /etc/zabbix/zabbix_proxy.conf
+#sed -i 's/# StartDiscoverers=1/StartDiscoverers=5/g' /etc/zabbix/zabbix_proxy.conf
+#sed -i 's/# StartVMwareCollectors=0/StartVMwareCollectors=5/g' /etc/zabbix/zabbix_proxy.conf
+#sed -i 's/# VMwareCacheSize=8M/VMwareCacheSize=100M/g' /etc/zabbix/zabbix_proxy.conf
+#sed -i 's/# CacheSize=8M/CacheSize=100M/g' /etc/zabbix/zabbix_proxy.conf
+#sed -i 's/# AllowRoot=0/AllowRoot=1/g' /etc/zabbix/zabbix_proxy.conf
+#echo Zabbix Proxy Parameters have been configured
 #
 #
 #
