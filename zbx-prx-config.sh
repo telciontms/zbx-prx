@@ -21,7 +21,7 @@ echo Please specify a hostname for this device...
 read -p 'Hostname: ' HOSTNAME
 hostnamectl set-hostname $HOSTNAME
 echo Setting hostname...
-sed -i "s/raspberrypi/$HOSTNAME/g" /etc/hosts
+sed -i "s/centos7/$HOSTNAME/g" /etc/hosts
 echo "Hostname has been set to $HOSTNAME..."
 #
 #
@@ -48,7 +48,14 @@ echo "Please specify the Zabbix Proxy Hostname."
 echo "Format of the Zabbix Proxy Hostname should be ###-ClientName"
 read -p 'Zabbix Proxy Hostame: ' HOSTNAMEVAR
 #
-#
+echo Please configure the zabbix database user password based on documentation in ITG.
+echo You can find the information here:
+echo "For the mysql zabbix user: $(tput setaf 1)https://telcion.itglue.com/775995/passwords/5380562#partial=&sortBy=name:asc&filters=%5B%5D $(tput sgr 0)"
+echo " "
+stty -echo
+printf "Specify password for mysql zabbix user: "
+read MYSQLZABBIXPW
+stty echo
 #
 # Configuring Zabbix Server
 echo "Please specify the Zabbix Server"
@@ -63,7 +70,7 @@ sed -i "s/Hostname=Zabbix proxy/Hostname=$HOSTNAMEVAR/g" /etc/zabbix/zabbix_prox
 # Configuring Zabbix Proxy Parameters
 echo Configuring Zabbix Proxy DB Connection Parameters...
 sed -i 's/DBName=zabbix_proxy/DBName=zabbix/g' /etc/zabbix/zabbix_proxy.conf
-# sed -i "s/# DBPassword=/DBPassword=$MYSQLZABBIXPW/g" /etc/zabbix/zabbix_proxy.conf
+sed -i "s/# DBPassword=/DBPassword=$MYSQLZABBIXPW/g" /etc/zabbix/zabbix_proxy.conf
 echo Configuring zabbix proxy configuration retrieval frequency
 sed -i 's/# ConfigFrequency=3600/ConfigFrequency=1200/g' /etc/zabbix/zabbix_proxy.conf
 echo Configuring other zabbix proxy parameters...
